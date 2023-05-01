@@ -1,8 +1,380 @@
 @import url('https://fonts.googleapis.com/css2?family=K2D:wght@100;200;300;400;500;600;700;800&family=Macondo&family=Poppins:wght@200;300;400;500;600;700;800&family=Varela+Round&display=swap');
 
-html{
-    font-size: 10px;
+html {
+  font-size: 10px;
 }
-body{
-    font-family: 'Poppins', sans-serif;
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.mainContainer {
+  position: relative;
+}
+
+.myVideo {
+  background-color: aqua;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5);
+}
+
+.text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.text p {
+  text-align: center;
+  font-size: 7rem;
+  font-weight: 700;
+  font-family: 'Macondo', sans-serif;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+
+.controlBtn {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.controlBtn span {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: 'Varela Round', sans-serif;
+  color: #ffffff;
+  letter-spacing: 2px;
+  padding: 5px 0px;
+  width: 90px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.switchBtn {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 0%;
+  background-color: #ffffff;
+  border-radius: 5px;
+  z-index: 11;
+  transition: all 0.4s;
+}
+
+.btnPosition {
+  left: 50%;
+}
+
+
+/* For ---> Pre Loader */
+
+.preloader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #eeeeee;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+}
+
+.pl {
+  width: 9em;
+  height: 9em;
+}
+
+.pl__ring {
+  animation: ringA 2s linear infinite;
+}
+
+.pl__ring--a {
+  stroke: #f42f25;
+}
+
+.pl__ring--b {
+  animation-name: ringB;
+  stroke: #f49725;
+}
+
+.pl__ring--c {
+  animation-name: ringC;
+  stroke: #255ff4;
+}
+
+.pl__ring--d {
+  animation-name: ringD;
+  stroke: #f42582;
+}
+
+/* Animations */
+@keyframes ringA {
+
+  from,
+  4% {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -330;
+  }
+
+  12% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -335;
+  }
+
+  32% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -595;
+  }
+
+  40%,
+  54% {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -660;
+  }
+
+  62% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -665;
+  }
+
+  82% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -925;
+  }
+
+  90%,
+  to {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -990;
+  }
+}
+
+@keyframes ringB {
+
+  from,
+  12% {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -110;
+  }
+
+  20% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -115;
+  }
+
+  40% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -195;
+  }
+
+  48%,
+  62% {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  70% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  90% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -305;
+  }
+
+  98%,
+  to {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -330;
+  }
+}
+
+@keyframes ringC {
+  from {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: 0;
+  }
+
+  8% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -5;
+  }
+
+  28% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -175;
+  }
+
+  36%,
+  58% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  66% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  86% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -395;
+  }
+
+  94%,
+  to {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -440;
+  }
+}
+
+@keyframes ringD {
+
+  from,
+  8% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: 0;
+  }
+
+  16% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -5;
+  }
+
+  36% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -175;
+  }
+
+  44%,
+  50% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  58% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  78% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -395;
+  }
+
+  86%,
+  to {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -440;
+  }
+}
+
+
+
+
+
+
+/* Smartphones Mobile Small*/
+@media only screen and (max-width: 320px) {
+  .text {
+    position: absolute;
+    width: 80%;
+    top: 30%;
+  }
+  .text p {
+    font-size: 4.4rem;
+    letter-spacing: 1px;
+  }
+  .controlBtn {
+    top: 80%;
+  }
+  .controlBtn span {
+    font-size: 1.6rem;
+  }
+}
+
+
+/* Smartphones Mobile Medium*/
+@media(min-width: 321px) and (max-width: 375px) {
+  .text {
+    position: absolute;
+    width: 80%;
+    top: 30%;
+  }
+  .text p {
+    font-size: 4.8rem;
+    letter-spacing: 1px;
+  }
+  .controlBtn {
+    top: 80%;
+  }
+  .controlBtn span {
+    font-size: 1.7rem;
+  }
+}
+
+/* Smartphones Mobile Large*/
+@media(min-width: 376px) and (max-width: 500px) {
+  .text {
+    position: absolute;
+    width: 80%;
+    top: 30%;
+  }
+  .text p {
+    font-size: 5.2rem;
+    letter-spacing: 1px;
+  }
+  .controlBtn {
+    top: 80%;
+  }
+  .controlBtn span {
+    font-size: 1.8rem;
+  }
 }
